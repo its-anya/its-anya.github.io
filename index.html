@@ -1,11 +1,1517 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Mera Guitar Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anya - Spy x Family</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --pink: #ffa6c9;
+            --dark-pink: #ff6b9d;
+            --light-pink: #ffe0eb;
+            --white: #ffffff;
+            --dark: #333333;
+            --light-gray: #f0f0f0;
+            --dark-bg: #222222;
+            --dark-card: #2d2d2d;
+            --dark-text: #e0e0e0;
+            --dark-secondary: #555555;
+        }
+        
+        .dark-mode {
+            --pink: #ff4d94;
+            --dark-pink: #ff1a75;
+            --light-pink: #500a24;
+            --white: var(--dark-card);
+            --dark: var(--dark-text);
+            --light-gray: var(--dark-secondary);
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--light-pink);
+            color: var(--dark);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        header {
+            background-color: var(--pink);
+            color: var(--white);
+            text-align: center;
+            padding: 1.8rem 0;
+            position: relative;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+        }
+        
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.15);
+            letter-spacing: 1px;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid var(--dark-pink);
+            object-fit: cover;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        }
+        
+        .profile-info h2 {
+            text-align: center;
+            color: var(--dark-pink);
+            margin-bottom: 0.8rem;
+            font-size: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-info p {
+            text-align: center;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            padding: 0 1rem;
+            font-weight: 500;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            color: var(--dark-pink);
+            text-decoration: none;
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            min-width: 130px;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--dark-pink);
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 4px solid var(--white);
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--dark-pink);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .about-section, .quotes-section {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--dark-pink);
+        }
+        
+        .section-title {
+            color: var(--dark-pink);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            font-size: 1.8rem;
+            padding-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--dark-pink), var(--pink));
+            border-radius: 10px;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin: 1.2rem 0;
+            padding: 1.5rem;
+            background-color: var(--light-pink);
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .quote:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--dark-pink);
+            opacity: 0.3;
+            position: absolute;
+            top: -12px;
+            left: 8px;
+        }
+        
+        footer {
+            background-color: var(--pink);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            font-size: 1rem;
+            box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        footer p {
+            margin: 0.4rem 0;
+        }
+        
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        footer a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            text-decoration: underline;
+        }
+
+        /* Added animation for section titles */
+        .section-title {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--pink), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .social-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .social-links a {
+                margin-bottom: 0.8rem;
+                flex: 0 0 calc(33.333% - 1rem);
+            }
+            
+            .about-section, .quotes-section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            footer {
+                padding: 1.5rem 0;
+            }
+            
+            .footer-content p {
+                margin: 0.3rem 0;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .header-content p {
+                font-size: 1rem;
+            }
+            
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .gallery-item {
+                border-width: 3px;
+                border-radius: 12px;
+            }
+            
+            .gallery-item img {
+                height: 180px;
+            }
+            
+            .profile-info h2 {
+                font-size: 1.6rem;
+            }
+            
+            .profile-info p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .social-links a {
+                padding: 0.7rem 1rem;
+                min-width: 110px;
+                font-size: 0.9rem;
+            }
+            
+            .about-section p, .quotes-section .quote {
+                font-size: 0.95rem;
+            }
+            
+            .quote {
+                padding: 1.2rem;
+                font-size: 1rem;
+            }
+            
+            .settings-panel {
+                width: 300px;
+            }
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .lightbox-img {
+            display: block;
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--pink);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+        }
+
+        .lightbox-close:before,
+        .lightbox-close:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+        }
+
+        .lightbox-close:before {
+            transform: rotate(45deg);
+        }
+
+        .lightbox-close:after {
+            transform: rotate(-45deg);
+        }
+
+        /* Settings panel styles */
+        .settings-btn {
+            position: absolute;
+            top: 2px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ffa4c8;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 0px 2px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .settings-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .settings-panel {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 350px;
+            height: 100%;
+            background-color: var(--white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            z-index: 1000;
+            overflow-y: auto;
+            transition: right 0.3s ease;
+        }
+        
+        .settings-panel.active {
+            right: 0;
+        }
+        
+        .settings-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-pink);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .settings-title {
+            color: var(--dark-pink);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-pink);
+        }
+        
+        .settings-section {
+            margin-bottom: 30px;
+        }
+        
+        .settings-section h3 {
+            color: var(--dark-pink);
+            margin-bottom: 15px;
+        }
+        
+        /* Dark mode toggle */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .toggle-label {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: var(--dark-pink);
+        }
+        
+        input:focus + .toggle-slider {
+            box-shadow: 0 0 1px var(--dark-pink);
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(30px);
+        }
+        
+        /* Music player styles */
+        .music-tabs {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--light-pink);
+        }
+        
+        .music-tab {
+            padding: 8px 15px;
+            cursor: pointer;
+            background-color: var(--light-pink);
+            color: var(--dark);
+            border: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .music-tab.active {
+            background-color: var(--dark-pink);
+            color: white;
+        }
+        
+        .music-content {
+            display: none;
+        }
+        
+        .music-content.active {
+            display: block;
+        }
+        
+        .music-list {
+            list-style: none;
+        }
+        
+        .music-item {
+            padding: 10px;
+            border-bottom: 1px solid var(--light-pink);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+        
+        .music-item:hover {
+            background-color: var(--light-pink);
+        }
+        
+        .music-item.playing {
+            background-color: var(--light-pink);
+            font-weight: bold;
+            color: var(--dark-pink);
+        }
+        
+        .music-icon {
+            margin-right: 10px;
+            color: var(--dark-pink);
+        }
+        
+        .player-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: var(--light-pink);
+            border-radius: 10px;
+        }
+        
+        .player-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--dark-pink);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .player-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .now-playing {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 10px;
+            text-align: center;
+            color: var(--dark-pink);
+            height: 20px;
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .volume-control i {
+            margin-right: 10px;
+            color: var(--dark-pink);
+        }
+        
+        .volume-slider {
+            flex-grow: 1;
+            height: 5px;
+            background-color: var(--light-pink);
+            border-radius: 5px;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--dark-pink);
+            cursor: pointer;
+        }
+        
+        .settings-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        .settings-overlay.active {
+            display: block;
+        }
+
+        /* Add audio timeline/progress bar */
+        .timeline-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .current-time, .total-time {
+            font-size: 0.8rem;
+            color: var(--dark-pink);
+        }
+        
+        .progress-bar-container {
+            flex-grow: 1;
+            height: 5px;
+            background-color: var(--light-pink);
+            border-radius: 5px;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .progress-filled {
+            height: 100%;
+            width: 0%;
+            background-color: var(--dark-pink);
+            border-radius: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Media queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .social-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .social-links a {
+                margin-bottom: 0.8rem;
+                flex: 0 0 calc(33.333% - 1rem);
+            }
+            
+            .about-section, .quotes-section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            footer {
+                padding: 1.5rem 0;
+            }
+            
+            .footer-content p {
+                margin: 0.3rem 0;
+            }
+            
+            /* Settings panel responsive styles */
+            .settings-panel {
+                width: 280px;
+                right: -280px;
+                padding: 15px;
+            }
+            
+            .settings-title {
+                font-size: 1.4rem;
+                margin-top: 10px;
+            }
+            
+            .settings-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .music-tab {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .player-btn {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .toggle-switch {
+                width: 50px;
+                height: 26px;
+            }
+            
+            .toggle-slider:before {
+                height: 18px;
+                width: 18px;
+            }
+            
+            input:checked + .toggle-slider:before {
+                transform: translateX(24px);
+            }
+            
+            .music-item {
+                padding: 12px 8px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .header-content p {
+                font-size: 1rem;
+            }
+            
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .gallery-item {
+                border-width: 3px;
+                border-radius: 12px;
+            }
+            
+            .gallery-item img {
+                height: 180px;
+            }
+            
+            .profile-info h2 {
+                font-size: 1.6rem;
+            }
+            
+            .profile-info p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .social-links a {
+                padding: 0.7rem 1rem;
+                min-width: 110px;
+                font-size: 0.9rem;
+            }
+            
+            .about-section p, .quotes-section .quote {
+                font-size: 0.95rem;
+            }
+            
+            .quote {
+                padding: 1.2rem;
+                font-size: 1rem;
+            }
+            
+            /* Settings panel mobile styles */
+            .settings-panel {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .settings-close {
+                top: 10px;
+                right: 10px;
+                width: 44px;
+                height: 44px;
+            }
+            
+            .settings-title {
+                margin-top: 15px;
+                margin-bottom: 15px;
+                padding-right: 40px;
+            }
+            
+            .toggle-container {
+                margin-bottom: 20px;
+            }
+            
+            .music-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .music-tab {
+                flex-grow: 1;
+                text-align: center;
+                padding: 10px;
+                margin-right: 3px;
+                margin-bottom: 3px;
+            }
+            
+            .player-controls {
+                padding: 15px 10px;
+            }
+            
+            .player-btn {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .timeline-container {
+                margin-bottom: 15px;
+            }
+            
+            .progress-bar-container {
+                height: 8px;
+            }
+            
+            .volume-control {
+                margin-top: 15px;
+            }
+            
+            .volume-slider {
+                height: 8px;
+            }
+            
+            .volume-slider::-webkit-slider-thumb {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .music-item {
+                padding: 15px 10px;
+            }
+        }
+
+        /* Add Family Section Styles */
+        .family-section {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--dark-pink);
+        }
+        
+        .family-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .family-member {
+            background-color: var(--light-pink);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .family-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .family-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--dark-pink);
+            margin-bottom: 1rem;
+        }
+        
+        .family-member h3 {
+            color: var(--dark-pink);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Remove Game Section Styles */
+        
+        @media screen and (max-width: 768px) {
+            .family-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to My Guitar Page!</h1>
-  <p>Yeh meri GitHub Pages site hai.</p>
+    <header>
+        <div class="header-content">
+            <h1>Anya</h1>
+            <p>「ワクワク」- That's me from Spy x Family!</p>
+            <!-- Settings Button -->
+            <div class="settings-btn">
+                <i class="fas fa-cog fa-lg"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="profile-container">
+            <img src="img/dp.webp" alt="Anya" class="profile-pic">
+            <div class="profile-info">
+                <h2>It's Me, Anya!</h2>
+                <p>I can read minds. I love peanuts. I'm very elegant!</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/anya_spy_x/" target="_blank">My Insta</a>
+                    <a href="https://github.com/its-anya" target="_blank">My GitHub</a>
+                    <a href="mailto:anya.suzme@gmail.com">Email Me</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">About Me</h2>
+            <p>Hi! I'm Anya! I have a secret power - I can read minds! But shhh, don't tell Papa or Mama. I was once known as Test Subject "007" before Papa adopted me.</p>
+            <p>I love peanuts and watching spy shows! I go to Eden Academy now where I'm trying to help Papa with his secret mission. Waku Waku! I hope we can be friends!</p>
+        </div>
+
+        <div class="quotes-section">
+            <h2 class="section-title">My Favorite Things to Say</h2>
+            <div class="quote">"Waku Waku!" (When I'm excited!)</div>
+            <div class="quote">"I want peanuts!"</div>
+            <div class="quote">"I will become friends with the tonitrus boy."</div>
+            <div class="quote">"Heh." (When I see something funny in people's minds)</div>
+        </div>
+
+        <!-- My Family Section (commented out) 
+        <div class="family-section">
+            <h2 class="section-title">My Family</h2>
+            <div class="family-container">
+                <div class="family-member">
+                    <img src="img/loid.png" alt="Loid Forger" class="family-img">
+                    <h3>Loid Forger (Papa)</h3>
+                    <p>He's a spy working for WISE! But shh, it's a secret. He's very smart and cool!</p>
+                </div>
+                <div class="family-member">
+                    <img src="img/yor.png" alt="Yor Forger" class="family-img">
+                    <h3>Yor Forger (Mama)</h3>
+                    <p>She's actually an assassin! She's super strong and protects me.</p>
+                </div>
+                <div class="family-member">
+                    <img src="img/bond.png" alt="Bond" class="family-img">
+                    <h3>Bond (My Dog)</h3>
+                    <p>He can see the future! We understand each other.</p>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <h2 class="section-title">My Photo Collection</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="img/1.png" alt="Anya">
+            </div>
+            <div class="gallery-item">
+                <img src="img/2.png" alt="Anya">
+            </div>
+            <div class="gallery-item">
+                <img src="img/3.png" alt="Anya">
+            </div>
+            <div class="gallery-item">
+                <img src="img/4.png" alt="Anya">
+            </div>
+            <div class="gallery-item">
+                <img src="img/5.png" alt="Anya">
+            </div>
+            <div class="gallery-item">
+                <img src="img/6.png" alt="Anya">
+            </div>
+            <div class="gallery-item">
+                <img src="img/7.png" alt="Anya">
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox for image viewing -->
+    <div class="lightbox">
+        <div class="lightbox-close"></div>
+        <div class="lightbox-content">
+            <img src="" alt="Fullsize image" class="lightbox-img">
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 This is my page!</p>
+            <p>Follow me on Instagram: <a href="https://www.instagram.com/anya_spy_x/" target="_blank">@anya_spy_x</a></p>
+            <p>My GitHub: <a href="https://github.com/its-anya" target="_blank">its-anya</a></p>
+            <p>Write to me: <a href="mailto:anya.suzme@gmail.com">anya.suzme@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Settings Overlay -->
+    <div class="settings-overlay"></div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel">
+        <div class="settings-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <h2 class="settings-title">Settings</h2>
+        
+        <!-- Dark Mode Toggle -->
+        <div class="settings-section">
+            <h3>Appearance</h3>
+            <div class="toggle-container">
+                <span class="toggle-label">Dark Mode</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Music Player -->
+        <div class="settings-section">
+            <h3>Music Player</h3>
+            <div class="music-tabs">
+                <button class="music-tab active" data-tab="hindi">Hindi Music</button>
+                <button class="music-tab" data-tab="japanese">Japanese Music</button>
+            </div>
+            
+            <!-- Hindi Music List -->
+            <div class="music-content active" id="hindi-music">
+                <ul class="music-list">
+                    <li class="music-item" data-src="music\hindi\SPY x FAMILY ED Song.mp3">
+                        <i class="fas fa-music music-icon"></i>
+                        <span>SPY x FAMILY ED Song</span>
+                    </li>
+                    <li class="music-item" data-src="music\hindi\SPY X FAMILY Ending 1.mp3">
+                        <i class="fas fa-music music-icon"></i>
+                        <span>SPY X FAMILY Ending 1</span>
+                    </li>
+                    <li class="music-item" data-src="music\hindi\Spy X Family Hindi Rap.mp3">
+                        <i class="fas fa-music music-icon"></i>
+                        <span>Spy X Family Hindi Rap</span>
+                    </li>
+                    <li class="music-item" data-src="music\hindi\Spy x Family Hindi AMV.mp3">
+                        <i class="fas fa-music music-icon"></i>
+                        <span>Spy x Family Hindi AMV</span>
+                    </li>
+                    <li class="music-item" data-src="music\hindi\Spy x Family Sekai.mp3">
+                        <i class="fas fa-music music-icon"></i>
+                        <span>Spy x Family Sekai</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Japanese Music List -->
+            <div class="music-content" id="japanese-music">
+                <ul class="music-list">
+                    <li class="music-item" data-src="music\japanese\SPY  FAMILY Ending theme song.mp3">
+                        <i class="fas fa-music music-icon"></i>
+                        <span>SPY x FAMILY theme song</span>
+                    </li>
+                    <li class="music-item" data-src="music\japanese\Ending theme P2.mp3">
+                        <i class="fas fa-music music-icon"></i>
+                        <span>Ending theme P2</span>
+                    </li>
+                    <li class="music-item" data-src="music\japanese\SPY FAMILY Gen Hoshino.mp3">
+                        <i class="fas fa-music music-icon"></i>
+                        <span>SPY FAMILY Gen Hoshino</span>
+                    </li>
+                    <li class="music-item" data-src="music\japanese\SPY FAMILY Opening.mp3">
+                        <i class="fas fa-music music-icon"></i>
+                        <span>SPY FAMILY Opening</span>
+                    </li>
+                    <li class="music-item" data-src="music\japanese\SPY FAMILY Ending Shikisai.mp3">
+                        <i class="fas fa-music music-icon"></i>
+                        <span>SPY FAMILY Ending Shikisai</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Player Controls -->
+            <div class="player-controls">
+                <div class="player-btn" id="prev-btn">
+                    <i class="fas fa-step-backward"></i>
+                </div>
+                <div class="player-btn" id="play-btn">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div class="player-btn" id="next-btn">
+                    <i class="fas fa-step-forward"></i>
+                </div>
+            </div>
+            <div class="now-playing" id="now-playing"></div>
+            
+            <!-- Add audio timeline/progress bar -->
+            <div class="timeline-container">
+                <span class="current-time">0:00</span>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                        <div class="progress-filled" id="progress-filled"></div>
+                    </div>
+                </div>
+                <span class="total-time">0:00</span>
+            </div>
+            
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <input type="range" min="0" max="1" step="0.1" value="0.7" class="volume-slider" id="volume-control">
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Element for Music Player -->
+    <audio id="audio-player"></audio>
+
+    <script>
+        // Lightbox functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = document.querySelector('.lightbox-img');
+            const lightboxClose = document.querySelector('.lightbox-close');
+
+            // Open lightbox when gallery item is clicked
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.querySelector('img').getAttribute('src');
+                    lightboxImg.setAttribute('src', imgSrc);
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+
+            // Close lightbox when close button is clicked
+            lightboxClose.addEventListener('click', function() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            });
+
+            // Also close lightbox when clicking outside the image
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Settings panel functionality
+            const settingsBtn = document.querySelector('.settings-btn');
+            const settingsPanel = document.querySelector('.settings-panel');
+            const settingsClose = document.querySelector('.settings-close');
+            const settingsOverlay = document.querySelector('.settings-overlay');
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const musicTabs = document.querySelectorAll('.music-tab');
+            const musicContents = document.querySelectorAll('.music-content');
+            const musicItems = document.querySelectorAll('.music-item');
+            const audioPlayer = document.getElementById('audio-player');
+            const playBtn = document.getElementById('play-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const nowPlaying = document.getElementById('now-playing');
+            const volumeControl = document.getElementById('volume-control');
+            const progressBar = document.getElementById('progress-bar');
+            const progressFilled = document.getElementById('progress-filled');
+            const currentTimeEl = document.querySelector('.current-time');
+            const totalTimeEl = document.querySelector('.total-time');
+
+            // Check if dark mode is enabled in localStorage
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+            }
+
+            // Toggle settings panel
+            settingsBtn.addEventListener('click', function() {
+                settingsPanel.classList.add('active');
+                settingsOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close settings panel
+            settingsClose.addEventListener('click', closeSettings);
+            settingsOverlay.addEventListener('click', closeSettings);
+
+            function closeSettings() {
+                settingsPanel.classList.remove('active');
+                settingsOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            // Dark mode toggle
+            darkModeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+
+            // Music tabs functionality
+            musicTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    musicTabs.forEach(t => t.classList.remove('active'));
+                    musicContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to selected tab and content
+                    this.classList.add('active');
+                    document.getElementById(tabId + '-music').classList.add('active');
+                });
+            });
+
+            // Audio player functionality
+            let currentTrack = null;
+            let isPlaying = false;
+
+            // Set initial volume
+            audioPlayer.volume = volumeControl.value;
+
+            // Format time in minutes:seconds
+            function formatTime(seconds) {
+                const min = Math.floor(seconds / 60);
+                const sec = Math.floor(seconds % 60);
+                return `${min}:${sec < 10 ? '0' + sec : sec}`;
+            }
+
+            // Update progress bar as audio plays
+            audioPlayer.addEventListener('timeupdate', updateProgress);
+            
+            function updateProgress() {
+                if (isPlaying) {
+                    const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                    progressFilled.style.width = percent + '%';
+                    currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+                    totalTimeEl.textContent = formatTime(audioPlayer.duration || 0);
+                }
+            }
+            
+            // Allow clicking on progress bar to seek
+            progressBar.addEventListener('click', function(e) {
+                const seekPosition = (e.offsetX / this.offsetWidth);
+                audioPlayer.currentTime = seekPosition * audioPlayer.duration;
+                updateProgress();
+            });
+
+            // Volume control
+            volumeControl.addEventListener('input', function() {
+                audioPlayer.volume = this.value;
+            });
+
+            // Play/Pause button
+            playBtn.addEventListener('click', function() {
+                if (!currentTrack) {
+                    // If no track is selected, play the first one
+                    const firstTrack = document.querySelector('.music-content.active .music-item');
+                    if (firstTrack) {
+                        playTrack(firstTrack);
+                    }
+                    return;
+                }
+
+                if (isPlaying) {
+                    audioPlayer.pause();
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    isPlaying = false;
+                } else {
+                    audioPlayer.play();
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    isPlaying = true;
+                }
+            });
+
+            // Previous button
+            prevBtn.addEventListener('click', function() {
+                if (!currentTrack) return;
+                
+                const activeList = document.querySelector('.music-content.active .music-list');
+                const tracks = Array.from(activeList.querySelectorAll('.music-item'));
+                const currentIndex = tracks.indexOf(currentTrack);
+                
+                const prevIndex = (currentIndex - 1 + tracks.length) % tracks.length;
+                playTrack(tracks[prevIndex]);
+            });
+
+            // Next button
+            nextBtn.addEventListener('click', function() {
+                if (!currentTrack) return;
+                
+                const activeList = document.querySelector('.music-content.active .music-list');
+                const tracks = Array.from(activeList.querySelectorAll('.music-item'));
+                const currentIndex = tracks.indexOf(currentTrack);
+                
+                const nextIndex = (currentIndex + 1) % tracks.length;
+                playTrack(tracks[nextIndex]);
+            });
+
+            // Track ended event
+            audioPlayer.addEventListener('ended', function() {
+                // Play next track automatically
+                nextBtn.click();
+            });
+
+            // Play track when clicked
+            musicItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    playTrack(this);
+                });
+            });
+
+            function playTrack(trackElement) {
+                // Remove playing class from all tracks
+                musicItems.forEach(item => item.classList.remove('playing'));
+                
+                // Add playing class to current track
+                trackElement.classList.add('playing');
+                
+                // Set current track
+                currentTrack = trackElement;
+                
+                // Get track source
+                const trackSrc = trackElement.getAttribute('data-src');
+                const trackName = trackElement.querySelector('span').textContent;
+                
+                // Set audio source
+                audioPlayer.src = trackSrc;
+                
+                // Play audio
+                audioPlayer.play().catch(error => {
+                    console.log("Audio playback error (This is expected in this demo as we don't have actual audio files): ", error);
+                    // We'll simulate playback for demo purposes
+                    nowPlaying.textContent = "Now playing: " + trackName;
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    isPlaying = true;
+                });
+                
+                // Update now playing text
+                nowPlaying.textContent = "Now playing: " + trackName;
+                
+                // Update play button icon
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                isPlaying = true;
+            }
+        });
+    </script>
 </body>
-</html>
+</html> 
