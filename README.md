@@ -1,10 +1,10 @@
 # It's Me, Anya!
 
-Waku waku! I'm Anya Forger from Spy x Family! This is my personal website where I share things about myself!
+Waku waku! I'm Anya Suzme from Spy x Family! This is my personal website where I share things about myself!
 
-<div align="center">
-  <img src="img/readme-dp.png" alt="Anya" width="250" height="250" style="border-radius: 50%; object-fit: cover;" />
-</div>
+<p align="center">
+  <img src="img/readme-dp.png" alt="Anya" width="250" style="border-radius: 50%;">
+</p>
 
 ## What You'll Find Here
 
@@ -37,6 +37,50 @@ Waku waku! I'm Anya Forger from Spy x Family! This is my personal website where 
 - Special icons
 - Colors that change for dark mode
 - Memory to remember if you like dark mode
+
+## SEO Optimization
+
+This website is fully optimized for search engines to ensure it ranks well on Google and other search engines:
+
+### Technical SEO Implementation
+
+- **Sitemap**: A structured XML sitemap (`sitemap.xml`) helps search engines discover and index all content
+- **Robots.txt**: Properly configured to guide search engine crawlers
+- **Canonical URLs**: Prevents duplicate content issues
+- **Mobile Responsive Design**: Works perfectly on all devices
+- **Fast Loading Speed**: Optimized images and efficient code
+- **Semantic HTML**: Proper use of HTML5 elements (header, nav, section, etc.)
+
+### On-Page SEO Elements
+
+- **Meta Tags**: Optimized title, description, and keyword meta tags
+- **Structured Data**: Rich Schema.org markup for better understanding by search engines
+- **Image Optimization**: All images have descriptive alt text
+- **Internal Linking**: Proper navigation structure with semantic anchor text
+- **Header Tags**: Proper use of H1, H2 headers with relevant keywords
+- **Content Quality**: Unique, relevant content that engages users
+
+### Key SEO Features
+
+- **Open Graph Tags**: Enhanced social media sharing experience
+- **Twitter Card Integration**: Better appearance when shared on Twitter
+- **Rich Snippets Support**: Structured data for enhanced search results
+- **Breadcrumb Navigation**: Helps search engines understand site structure
+- **Keyword Strategy**: Strategic placement of target keywords throughout content
+- **hreflang Tags**: For international audience support
+
+### Monitoring Your SEO
+
+To monitor the website's search performance:
+
+1. Set up [Google Search Console](https://search.google.com/search-console)
+2. Submit your sitemap.xml file
+3. Verify ownership of the website
+4. Monitor for any crawl errors or issues
+5. Track keyword rankings and click-through rates
+6. Analyze user behavior and make improvements
+
+For best results, regularly update content and build quality backlinks from relevant websites.
 
 ## Fun Stuff You Can Do
 
