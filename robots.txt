@@ -1,0 +1,17 @@
+# robots.txt for https://its-anya.github.io/
+User-agent: *
+Allow: /
+Disallow: /settings-panel
+Disallow: /lightbox
+
+# Important pages for crawlers to prioritize
+Allow: /index.html
+Allow: /#about
+Allow: /#quotes
+Allow: /#gallery
+
+# Crawl delay suggestion (in seconds) for bots
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://its-anya.github.io/sitemap.xml 

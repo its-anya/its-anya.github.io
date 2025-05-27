@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://its-anya.github.io/</loc>
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://its-anya.github.io/img/dp.webp</image:loc>
+      <image:title>Anya Suzme Profile Picture</image:title>
+      <image:caption>Official profile image of Anya Suzme from Spy x Family</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://its-anya.github.io/#about</loc>
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://its-anya.github.io/#quotes</loc>
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://its-anya.github.io/#gallery</loc>
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://its-anya.github.io/img/1.png</image:loc>
+      <image:title>Anya Suzme showing excitement</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://its-anya.github.io/img/2.png</image:loc>
+      <image:title>Anya Suzme smiling</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://its-anya.github.io/img/3.png</image:loc>
+      <image:title>Anya Suzme making a funny face</image:title>
+    </image:image>
+  </url>
+</urlset> 
