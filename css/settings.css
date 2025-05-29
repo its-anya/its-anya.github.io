@@ -1,0 +1,379 @@
+/* Settings panel styles */
+.settings-btn {
+    position: absolute;
+    top: 2px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffa4c8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.settings-btn:hover {
+    transform: scale(1.1);
+}
+
+.settings-panel {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100%;
+    background-color: var(--white);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+}
+
+.settings-panel.active {
+    right: 0;
+}
+
+.settings-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark-pink);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-title {
+    color: var(--dark-pink);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light-pink);
+}
+
+.settings-section {
+    margin-bottom: 30px;
+}
+
+.settings-section h3 {
+    color: var(--dark-pink);
+    margin-bottom: 15px;
+}
+
+/* Dark mode toggle */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.toggle-label {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--dark-pink);
+}
+
+input:focus + .toggle-slider {
+    box-shadow: 0 0 1px var(--dark-pink);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(30px);
+}
+
+/* Music player styles */
+.music-tabs {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--light-pink);
+}
+
+.music-tab {
+    padding: 8px 15px;
+    cursor: pointer;
+    background-color: var(--light-pink);
+    color: var(--dark);
+    border: none;
+    border-radius: 5px 5px 0 0;
+    margin-right: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.music-tab.active {
+    background-color: var(--dark-pink);
+    color: var(--white);
+}
+
+.music-content {
+    display: none;
+}
+
+.music-content.active {
+    display: block;
+}
+
+.music-list {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.music-item {
+    padding: 10px;
+    background-color: var(--light-pink);
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.music-item:hover, .music-item.playing {
+    background-color: var(--dark-pink);
+    color: var(--white);
+    transform: translateX(5px);
+}
+
+.music-icon {
+    margin-right: 10px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    background-color: var(--light-pink);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.player-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--white);
+    color: var(--dark-pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.player-btn:hover {
+    background-color: var(--dark-pink);
+    color: var(--white);
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.now-playing {
+    text-align: center;
+    margin: 10px 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--dark-pink);
+    min-height: 20px;
+}
+
+/* Timeline styles */
+.timeline-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.current-time, .total-time {
+    font-size: 0.8rem;
+    width: 35px;
+    font-weight: 500;
+}
+
+.progress-bar-container {
+    flex: 1;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.progress-filled {
+    background-color: var(--dark-pink);
+    height: 100%;
+    border-radius: 3px;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.1s ease;
+    pointer-events: none;
+}
+
+.progress-bar-container:hover {
+    background-color: #ccc;
+}
+
+.progress-bar-container:hover .progress-filled {
+    background-color: var(--pink);
+}
+
+/* Volume control */
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.volume-control i {
+    color: var(--dark-pink);
+}
+
+.volume-slider {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background-color: #ddd;
+    border-radius: 3px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--dark-pink);
+    cursor: pointer;
+    border: 2px solid var(--white);
+}
+
+/* Settings panel mobile styles */
+@media screen and (max-width: 480px) {
+    .settings-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .settings-close {
+        top: 10px;
+        right: 10px;
+        width: 44px;
+        height: 44px;
+    }
+    
+    .settings-title {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding-right: 40px;
+    }
+    
+    .toggle-container {
+        margin-bottom: 20px;
+    }
+    
+    .music-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .music-tab {
+        flex-grow: 1;
+        text-align: center;
+        padding: 10px;
+        margin-right: 3px;
+        margin-bottom: 3px;
+    }
+    
+    .player-controls {
+        padding: 15px 10px;
+    }
+    
+    .player-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .timeline-container {
+        margin-bottom: 15px;
+    }
+    
+    .progress-bar-container {
+        height: 8px;
+    }
+    
+    .volume-control {
+        margin-top: 15px;
+    }
+    
+    .volume-slider {
+        height: 8px;
+    }
+    
+    .volume-slider::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .music-item {
+        padding: 15px 10px;
+    }
+} 
